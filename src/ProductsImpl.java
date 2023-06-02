@@ -5,6 +5,9 @@ public class ProductsImpl {
     public ProductsImpl() {
 
     }
+
+    //добавляет новый продукт возвращает true - если продукта с таким id еще не было
+    // возвращает false - если был такой id, вставка отменяется
     public Boolean addProduct(Product product) {
         boolean chek = true;
         for(int j=0; j<products.size();j++){
@@ -13,6 +16,9 @@ public class ProductsImpl {
         if(chek) products.add(product);
         return chek;
     }
+
+    //Удаляет продукт возвращает true - если продукт с таким id был
+    // возвроащает false - если id не было, (удаления не происходит)
     public Boolean deleteProduct(Product product) {
         boolean chek = false;
         for(int j=0; j<products.size();j++){
@@ -22,6 +28,8 @@ public class ProductsImpl {
         return chek;
     }
 
+    //Получает имя (name) продукта возращает name продукта у которого идентификатор равен (=) id
+    // если продукта нет, вернуть пустую строку ""
     public String getName(String id) {
         String name = "";
         for(int j=0; j<products.size();j++){
@@ -29,6 +37,9 @@ public class ProductsImpl {
         }
         return name;
     }
+
+    //возвращает массив (список) идентификаторов (id) У котрых наименование равно (=) name
+    // Если таких нет, возвращается пустой массив (список)
     public List findByName(String name) {
         List<String> ids = new ArrayList<>();
         for(int j=0; j<products.size();j++){
